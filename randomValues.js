@@ -1,7 +1,9 @@
-//Selenium Functions
+///////////////////////////////
+//    Selenium Functions    ///
+///////////////////////////////
 
-//Selenium Function for generating random value in a specified range and specified number of decimal places 
-//introduced via an array ([start, end, decimalPlaces]
+//Selenium Function for generating random values of different types in any range (e.g. bool, float, integer, ip, euro, date)
+
 Selenium.prototype.doRandomValue = function( varName ) {
 
     var randomFunction = ["bool",
@@ -57,28 +59,26 @@ Selenium.prototype.doRandomValue = function( varName ) {
     };    
 };
 
-//Selenium Function for generating random numbers in a specified range and specified number of decimal places 
-//introduced via an array ([start, end, decimalPlaces]
+//Selenium Function for generating random numbers in a specified range and a specified number of decimal places 
+//introduced via a text following the pattern:   start | end | decimalPlaces
+
 Selenium.prototype.doRandomNumber = function( range, varName ) {
+	var text = range.toString();
+    var tempArray = text.split("|").map(String);
     
-    var start = range[0];
-    var end = range[1];
-    var decimalPlaces = range[3];
-    
-    storedVars[ varName ] = chance.floating({min: start, max: end, fixed: decimalPlaces});
+    var start = tempArray[0];
+    var end = tempArray[1];
+    var decimalPlaces = tempArray[2];    
+	
+    storedVars[ varName ] = chance.floating({min: start, max: end, fixed: decimalPlaces});    
 };
 
 
 
 
-
-
-
-
-
-
-//JavaScript Functions
-
+////////////////////////////////
+//    JavaScript Functions    //
+////////////////////////////////
 function randomNumeric ( length ) {    
     return generateRandomString( length, '0123456789'.split( '' ) );
 }

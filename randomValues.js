@@ -1,4 +1,8 @@
-Selenium.prototype.doRandomValue = function( options, varName ) {
+//Selenium Functions
+
+//Selenium Function for generating random value in a specified range and specified number of decimal places 
+//introduced via an array ([start, end, decimalPlaces]
+Selenium.prototype.doRandomValue = function( varName ) {
 
     var randomFunction = ["bool",
                           "float", "integer", "natural", "maxint", "minint",
@@ -53,6 +57,27 @@ Selenium.prototype.doRandomValue = function( options, varName ) {
     };    
 };
 
+//Selenium Function for generating random numbers in a specified range and specified number of decimal places 
+//introduced via an array ([start, end, decimalPlaces]
+Selenium.prototype.doRandomNumber = function( range, varName ) {
+    
+    var start = range[0];
+    var end = range[1];
+    var decimalPlaces = range[3];
+    
+    storedVars[ varName ] = chance.floating({min: start, max: end, fixed: decimalPlaces});
+};
+
+
+
+
+
+
+
+
+
+
+//JavaScript Functions
 
 function randomNumeric ( length ) {    
     return generateRandomString( length, '0123456789'.split( '' ) );

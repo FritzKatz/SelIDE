@@ -5,7 +5,7 @@ Selenium.prototype.doRandomValue = function( options, varName ) {
                           "alpha", "character", "word", "paragraph", "alphanumeric", "randhex",
                           "domain", "email", "fbid", "google_analyt", "hashtag", "ip", "ipv6",
                           "address", "phone", "postal", "province", "date", "hammertime", "timestamp",
-                          "cc", "cctype", "euro", "exp",
+                          "cc", "cc_type", "euro", "exp",
                           "randarray", "javascript"];	
     var length = 8;	
 	var type = randomFunction[Math.floor(Math.random() * randomFunction.length)];
@@ -43,7 +43,7 @@ Selenium.prototype.doRandomValue = function( options, varName ) {
         case 'timestamp'    : storedVars[ varName ] = chance.timestamp(); break;
         
         case 'cc'           : storedVars[ varName ] = chance.cc(); break;
-        case 'cctype'       : storedVars[ varName ] = chance.cctype(); break;
+        case 'cc_type'      : storedVars[ varName ] = chance.cc_type(); break;
         case 'euro'         : storedVars[ varName ] = chance.euro(); break;
         case 'exp'          : storedVars[ varName ] = chance.exp(); break;
         
